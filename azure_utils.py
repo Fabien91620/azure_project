@@ -12,7 +12,6 @@ import credentials
 def get_computer_vision():
     computervision_client = ComputerVisionClient(credentials.COG_ENDPOINT,
                                                  CognitiveServicesCredentials(credentials.COG_KEY))
-    # computervision_client.
 
     return computervision_client
 
