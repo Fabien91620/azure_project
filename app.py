@@ -119,6 +119,12 @@ def display_filtered_images(selection):
 
     for row in cursor.fetchall():
         st.image(row["url"], caption=f'{selection}')
+        if st.button('Supprimer'):
+            select = f"DELETE FROM `azure_project`.`image` WHERE url = '{row['url']}'"
+            cursor = connection.cursor(dictionary=True, buffered=True)
+            cursor.execute(select)
+            connection.commit()
+
 
 
 connection = connect_db()
